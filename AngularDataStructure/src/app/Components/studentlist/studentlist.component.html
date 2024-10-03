@@ -1,0 +1,19 @@
+<div>
+    <input  name="" placeholder="input student number" [(ngModel)]="studID"> <br><br>
+    <input  name="" placeholder="input student name"  [(ngModel)]="studName"><br><br>
+    <input  name="" placeholder="input student section"  [(ngModel)]="studSec"><br><br>
+    <button (click)="addStudents()" class="btn btn-outline-dark"> Add</button>
+  </div>
+
+  <div *ngFor="let students of student" class="border border-dark w-25 ">
+    <ul class="">
+      <li>
+        <p>ID: {{students.studentNum}}</p>
+        <p>NAME: {{students.name}}</p>
+        <p>SECTION: {{students.section}}</p>
+      </li>
+      
+  
+    </ul>
+  
+  </div>
