@@ -1,0 +1,17 @@
+<div>
+    <h2>Sports</h2>
+  
+    <ul>
+      <li *ngFor="let sport of sports; let i = index">
+        {{ sport.name }} - {{ sport.category }}
+        <button (click)="removeSport(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Sport name" />
+    <input type="text" #category placeholder="Category" />
+    <button (click)="addSport(name.value, category.value); 
+                     name.value=''; category.value=''">
+      Add Sport
+    </button>
+  </div>
