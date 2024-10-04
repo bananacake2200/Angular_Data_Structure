@@ -1,0 +1,25 @@
+<div>
+    <h2>Product List</h2>
+  
+    <ul>
+      <li *ngFor="let product of products; let i = index">
+        {{ product.name }} - {{ product.category }} - ${{ product.price | number:'1.2-2' }}
+        <span [ngClass]="{'in-stock': product.inStock, 'out-of-stock': !product.inStock}">
+          - {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
+        </span>
+        <button (click)="removeProduct(i)">Remove</button>
+        <button (click)="toggleInStock(i)">
+          {{ product.inStock ? 'Mark as Out of Stock' : 'Mark as In Stock' }}
+        </button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Product name" />
+    <input type="text" #category placeholder="Category" />
+    <input type="number" #price placeholder="Price" />
+    <button (click)="addProduct(name.value, category.value, price.value); 
+                     name.value=''; category.value=''; price.value=''">
+      Add Product
+    </button>
+  </div>
+  
