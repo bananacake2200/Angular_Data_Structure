@@ -1,0 +1,19 @@
+<div>
+    <h2>Music Playlist</h2>
+  
+    <ul>
+      <li *ngFor="let song of songs; let i = index">
+        {{ song.title }} - {{ song.artist }}
+        <button (click)="removeSong(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #title placeholder="Song title" />
+    <input type="text" #artist placeholder="Artist name" />
+    <button (click)="addSong(title.value, artist.value); 
+                     title.value=''; artist.value=''">
+      Add Song
+    </button>
+  </div>
+ 
+  
