@@ -1,0 +1,26 @@
+<div>
+    <h2>Library Book List</h2>
+    
+    <ul>
+      <li *ngFor="let book of books; let i = index">
+        {{ book.title }} by {{ book.author }} - {{ book.genre }} (Published: {{ book.year }})
+        <span [ngClass]="{'available': book.available, 'unavailable': !book.available}">
+          - {{ book.available ? 'Available' : 'Checked Out' }}
+        </span>
+        <button (click)="removeBook(i)">Remove</button>
+        <button (click)="toggleAvailability(i)">
+          {{ book.available ? 'Mark as Checked Out' : 'Mark as Available' }}
+        </button>
+      </li>
+    </ul>
+  
+    <input type="text" #newBookTitle placeholder="Book title" />
+    <input type="text" #newBookAuthor placeholder="Author" />
+    <input type="text" #newBookGenre placeholder="Genre" />
+    <input type="number" #newBookYear placeholder="Year of publication" />
+    <button (click)="addBook(newBookTitle.value, newBookAuthor.value, newBookGenre.value, newBookYear.value); 
+                     newBookTitle.value=''; newBookAuthor.value=''; newBookGenre.value=''; newBookYear.value=''">
+      Add Book
+    </button>
+  </div>
+  
