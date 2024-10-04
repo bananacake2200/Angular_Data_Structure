@@ -1,0 +1,15 @@
+<div>
+  
+    <ul>
+      <li *ngFor="let tool of tools; let i = index">
+        {{ tool.name }}
+        <button (click)="removeTool(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Tool name" />
+    <button (click)="addTool(name.value); 
+                     name.value=''">
+      Add Tool
+    </button>
+  </div>
