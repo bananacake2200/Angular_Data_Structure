@@ -1,0 +1,16 @@
+<div>
+    <h2>Video Games</h2>
+  
+    <ul>
+      <li *ngFor="let game of games; let i = index">
+        {{ game.name }}
+        <button (click)="removeGame(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Game name" />
+    <button (click)="addGame(name.value); 
+                     name.value=''">
+      Add Game
+    </button>
+  </div>
