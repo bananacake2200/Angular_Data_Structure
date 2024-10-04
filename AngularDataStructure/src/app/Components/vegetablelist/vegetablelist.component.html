@@ -1,0 +1,18 @@
+<div>
+    <h2>Vegetables Available at the Grocery Store</h2>
+  
+    <ul>
+      <li *ngFor="let vegetable of vegetables; let i = index">
+        {{ vegetable.name }} - {{ vegetable.type }}
+        <button (click)="removeVegetable(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Vegetable name" />
+    <input type="text" #type placeholder="Type" />
+    <button (click)="addVegetable(name.value, type.value); 
+                     name.value=''; type.value=''">
+      Add Vegetable
+    </button>
+  </div>
+  
