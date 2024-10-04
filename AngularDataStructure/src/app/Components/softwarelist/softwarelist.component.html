@@ -1,0 +1,15 @@
+<div>
+  
+    <ul>
+      <li *ngFor="let software of softwareList; let i = index">
+        {{ software.name }}
+        <button (click)="removeSoftware(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Software name" />
+    <button (click)="addSoftware(name.value); 
+                     name.value=''">
+      Add Software
+    </button>
+  </div>
