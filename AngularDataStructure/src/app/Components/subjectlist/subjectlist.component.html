@@ -1,0 +1,26 @@
+<div>
+    <h2>Subject List for the Semester</h2>
+  
+    <ul>
+      <li *ngFor="let subject of subjects; let i = index">
+        {{ subject.name }} ({{ subject.code }}) - Taught by {{ subject.teacher }} - 
+        {{ subject.units }} Units
+        <span [ngClass]="{'required': subject.isRequired, 'optional': !subject.isRequired}">
+          - {{ subject.isRequired ? 'Required' : 'Optional' }}
+        </span>
+        <button (click)="removeSubject(i)">Remove</button>
+        <button (click)="toggleIsRequired(i)">
+          {{ subject.isRequired ? 'Mark as Optional' : 'Mark as Required' }}
+        </button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Subject name" />
+    <input type="text" #code placeholder="Subject code" />
+    <input type="text" #teacher placeholder="Teacher" />
+    <input type="number" #units placeholder="Units" />
+    <button (click)="addSubject(name.value, code.value, teacher.value, units.value); 
+                     name.value=''; code.value=''; teacher.value=''; units.value=''">
+      Add Subject
+    </button>
+  </div>
