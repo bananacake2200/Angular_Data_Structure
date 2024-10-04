@@ -1,0 +1,25 @@
+<div>
+    <h2>Company City Operations List</h2>
+  
+    <ul>
+      <li *ngFor="let city of cities; let i = index">
+        {{ city.name }} ({{ city.country }}) - Population: {{ city.population | number }}
+        <span [ngClass]="{'operational': city.operational, 'non-operational': !city.operational}">
+          - {{ city.operational ? 'Operational' : 'Not Operational' }}
+        </span>
+        <button (click)="removeCity(i)">Remove</button>
+        <button (click)="toggleOperationalStatus(i)">
+          {{ city.operational ? 'Mark as Not Operational' : 'Mark as Operational' }}
+        </button>
+      </li>
+    </ul>
+  
+    <input type="text" #newCityName placeholder="City name" />
+    <input type="text" #newCityCountry placeholder="Country" />
+    <input type="number" #newCityPopulation placeholder="Population" />
+    <button (click)="addCity(newCityName.value, newCityCountry.value, newCityPopulation.value); 
+                     newCityName.value=''; newCityCountry.value=''; newCityPopulation.value=''">
+      Add City
+    </button>
+  </div>
+  
