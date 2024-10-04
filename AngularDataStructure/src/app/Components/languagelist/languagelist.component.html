@@ -1,0 +1,16 @@
+<div>
+    <h2>Spoken Languages</h2>
+  
+    <ul>
+      <li *ngFor="let language of languages; let i = index">
+        {{ language.name }}
+        <button (click)="removeLanguage(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Language name" />
+    <button (click)="addLanguage(name.value); 
+                     name.value=''">
+      Add Language
+    </button>
+  </div>
