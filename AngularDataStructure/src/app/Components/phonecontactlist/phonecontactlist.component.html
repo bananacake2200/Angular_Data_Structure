@@ -1,0 +1,17 @@
+<div>
+    <h2>Phone Contacts</h2>
+  
+    <ul>
+      <li *ngFor="let contact of contacts; let i = index">
+        {{ contact.name }} - {{ contact.phoneNumber }}
+        <button (click)="removeContact(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Contact name" />
+    <input type="text" #phoneNumber placeholder="Phone number" />
+    <button (click)="addContact(name.value, phoneNumber.value); 
+                     name.value=''; phoneNumber.value=''">
+      Add Contact
+    </button>
+  </div>
