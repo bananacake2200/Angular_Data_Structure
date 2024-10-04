@@ -1,0 +1,27 @@
+<!-- car-model-list.component.html -->
+<div>
+    <h2>Car Models Available at the Dealership</h2>
+  
+    <ul>
+      <li *ngFor="let car of carModels; let i = index">
+        {{ car.name }} by {{ car.manufacturer }} ({{ car.year }}) - ${{ car.price | number:'1.0-0' }}
+        <span [ngClass]="{'available': car.available, 'unavailable': !car.available}">
+          - {{ car.available ? 'Available' : 'Not Available' }}
+        </span>
+        <button (click)="removeCarModel(i)">Remove</button>
+        <button (click)="toggleAvailability(i)">
+          {{ car.available ? 'Mark as Not Available' : 'Mark as Available' }}
+        </button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Car model name" />
+    <input type="text" #manufacturer placeholder="Manufacturer" />
+    <input type="number" #year placeholder="Year" />
+    <input type="number" #price placeholder="Price" />
+    <button (click)="addCarModel(name.value, manufacturer.value, year.value, price.value); 
+                     name.value=''; manufacturer.value=''; year.value=''; price.value=''">
+      Add Car Model
+    </button>
+  </div>
+  
