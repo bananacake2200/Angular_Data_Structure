@@ -1,0 +1,27 @@
+<!-- movie-list.component.html -->
+<div>
+    <h2>Movie List</h2>
+  
+    <ul>
+      <li *ngFor="let movie of movies; let i = index">
+        {{ movie.title }} ({{ movie.releaseYear }}) - {{ movie.genre }} 
+        <span [ngClass]="{'showing': movie.isShowing, 'not-showing': !movie.isShowing}">
+          - {{ movie.isShowing ? 'Now Showing' : 'Coming Soon' }}
+        </span>
+        <button (click)="removeMovie(i)">Remove</button>
+        <button (click)="toggleIsShowing(i)">
+          {{ movie.isShowing ? 'Mark as Coming Soon' : 'Mark as Now Showing' }}
+        </button>
+      </li>
+    </ul>
+  
+    <input type="text" #title placeholder="Movie title" />
+    <input type="text" #genre placeholder="Genre" />
+    <input type="text" #director placeholder="Director" />
+    <input type="number" #releaseYear placeholder="Release year" />
+    <button (click)="addMovie(title.value, genre.value, director.value, releaseYear.value); 
+                     title.value=''; genre.value=''; director.value=''; releaseYear.value=''">
+      Add Movie
+    </button>
+  </div>
+  
