@@ -1,0 +1,19 @@
+<div>
+    <h2>Courses Offered</h2>
+    
+    <ul>
+      <li *ngFor="let course of courses; let i = index">
+        {{ course.name }} - {{ course.duration }} (Fee: {{ course.fee | currency:'USD' }})
+        <button (click)="removeCourse(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #newCourseName placeholder="Course name" />
+    <input type="text" #newCourseDuration placeholder="Course duration" />
+    <input type="number" #newCourseFee placeholder="Course fee" />
+    <button (click)="addCourse(newCourseName.value, newCourseDuration.value, newCourseFee.value); 
+                     newCourseName.value=''; newCourseDuration.value=''; newCourseFee.value=''">
+      Add Course
+    </button>
+  </div>
+  
