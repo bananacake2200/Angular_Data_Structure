@@ -1,0 +1,17 @@
+<div>
+    <h2>Country List by Continent</h2>
+  
+    <ul>
+      <li *ngFor="let country of countries; let i = index">
+        {{ country.name }} - {{ country.continent }}
+        <button (click)="removeCountry(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Country name" />
+    <input type="text" #continent placeholder="Continent" />
+    <button (click)="addCountry(name.value, continent.value); 
+                     name.value=''; continent.value=''">
+      Add Country
+    </button>
+  </div>
