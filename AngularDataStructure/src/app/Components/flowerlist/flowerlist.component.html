@@ -1,0 +1,17 @@
+<div>
+    <h2>Flower List for Wedding</h2>
+  
+    <ul>
+      <li *ngFor="let flower of flowers; let i = index">
+        {{ flower.name }} - Color: {{ flower.color }}
+        <button (click)="removeFlower(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Flower name" />
+    <input type="text" #color placeholder="Color" />
+    <button (click)="addFlower(name.value, color.value); 
+                     name.value=''; color.value=''">
+      Add Flower
+    </button>
+  </div>
