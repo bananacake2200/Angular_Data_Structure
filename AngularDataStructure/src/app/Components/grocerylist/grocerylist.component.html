@@ -1,0 +1,17 @@
+<div>
+    <h2>Grocery List</h2>
+  
+    <ul>
+      <li *ngFor="let item of groceryItems; let i = index">
+        {{ item.name }} - Quantity: {{ item.quantity }}
+        <button (click)="removeGroceryItem(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Item name" />
+    <input type="text" #quantity placeholder="Quantity" />
+    <button (click)="addGroceryItem(name.value, quantity.value); 
+                     name.value=''; quantity.value=''">
+      Add Item
+    </button>
+  </div>
