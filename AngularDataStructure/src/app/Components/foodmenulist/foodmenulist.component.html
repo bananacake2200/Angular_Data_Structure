@@ -1,0 +1,17 @@
+<div>
+    <h2>Menu</h2>
+  
+    <ul>
+      <li *ngFor="let item of menu; let i = index">
+        {{ item.name }} - ${{ item.price.toFixed(2) }}
+        <button (click)="removeFoodItem(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Food name" />
+    <input type="text" #price placeholder="Price" />
+    <button (click)="addFoodItem(name.value, price.value); 
+                     name.value=''; price.value=''">
+      Add Food Item
+    </button>
+  </div>
