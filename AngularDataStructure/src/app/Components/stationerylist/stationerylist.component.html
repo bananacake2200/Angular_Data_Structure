@@ -1,0 +1,17 @@
+<div>
+    <h2>Stationery List</h2>
+  
+    <ul>
+      <li *ngFor="let item of stationeryItems; let i = index">
+        {{ item.name }} - Quantity: {{ item.quantity }}
+        <button (click)="removeStationeryItem(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Stationery name" />
+    <input type="text" #quantity placeholder="Quantity" />
+    <button (click)="addStationeryItem(name.value, quantity.value); 
+                     name.value=''; quantity.value=''">
+      Add Item
+    </button>
+  </div>
