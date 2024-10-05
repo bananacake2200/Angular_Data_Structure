@@ -1,0 +1,23 @@
+<div>
+    <h2>Classroom List</h2>
+  
+    <ul>
+      <li *ngFor="let student of students; let i = index">
+        {{ student.name }} - {{ student.age }} - {{ student.gender }}
+        <button (click)="removeStudent(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Student name" />
+    <input type="text" #age placeholder="Age" />
+    
+    <select #gender>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    
+    <button (click)="addStudent(name.value, age.value, gender.value); 
+                     name.value=''; age.value=''; gender.value=''">
+      Add Student
+    </button>
+  </div>
