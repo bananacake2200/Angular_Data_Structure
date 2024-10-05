@@ -1,0 +1,18 @@
+<div>
+    <h2>Inventory</h2>
+  
+    <ul>
+      <li *ngFor="let item of inventory; let i = index">
+        {{ item.name }} - Quantity: {{ item.quantity }} - Price: ${{ item.price.toFixed(2) }}
+        <button (click)="removeInventoryItem(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Item name" />
+    <input type="text" #quantity placeholder="Quantity" />
+    <input type="text" #price placeholder="Price" />
+    <button (click)="addInventoryItem(name.value, quantity.value, price.value); 
+                     name.value=''; quantity.value=''; price.value=''">
+      Add Item
+    </button>
+  </div>
