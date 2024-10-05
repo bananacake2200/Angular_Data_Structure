@@ -1,0 +1,19 @@
+<!-- destination-list.component.html -->
+<div>
+    <h2>Travel Destination List</h2>
+  
+    <ul>
+      <li *ngFor="let destination of destinations; let i = index">
+        {{ destination.name }} - Country: {{ destination.country }}
+        <button (click)="removeDestination(i)">Remove</button>
+      </li>
+    </ul>
+  
+    <input type="text" #name placeholder="Destination name" />
+    <input type="text" #country placeholder="Country" />
+    <button (click)="addDestination(name.value, country.value); 
+                     name.value=''; country.value=''">
+      Add Destination
+    </button>
+  </div>
+  
